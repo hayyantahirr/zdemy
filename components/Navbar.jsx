@@ -57,7 +57,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/"
-                className={`text-[18px] md:text-[20px] ${pathname === '/' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
               >
                 Home
               </Link>
@@ -65,7 +69,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/about"
-                className={`text-[18px] md:text-[20px] ${pathname === '/about' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/about"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
               >
                 About us
               </Link>
@@ -73,7 +81,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/management"
-                className={`text-[18px] md:text-[20px] ${pathname === '/management' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/management"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
               >
                 Management
               </Link>
@@ -81,7 +93,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/news"
-                className={`text-[18px] md:text-[20px] ${pathname === '/news' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/news"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
               >
                 News & Event
               </Link>
@@ -89,7 +105,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/gallery"
-                className={`text-[18px] md:text-[20px] ${pathname === '/gallery' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/gallery"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
               >
                 Gallery
               </Link>
@@ -97,7 +117,11 @@ const Navbar = () => {
             <li>
               <Link
                 href="/contact-us"
-                className={`text-[18px] md:text-[20px] ${pathname === '/contact-us' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/contact-us"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
               >
                 Contact us
               </Link>
@@ -112,7 +136,11 @@ const Navbar = () => {
               <li className="px-4 py-2">
                 <Link
                   href="/"
-                  className={`block text-[18px] ${pathname === '/' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                  className={`block text-[18px] ${
+                    pathname === "/"
+                      ? "font-semibold text-[#FF725E]"
+                      : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                  } font-poppins transition-colors`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
@@ -121,7 +149,11 @@ const Navbar = () => {
               <li className="px-4 py-2">
                 <Link
                   href="/about"
-                  className={`block text-[18px] ${pathname === '/about' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                  className={`block text-[18px] ${
+                    pathname === "/about"
+                      ? "font-semibold text-[#FF725E]"
+                      : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                  } font-poppins transition-colors`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About us
@@ -130,7 +162,11 @@ const Navbar = () => {
               <li className="px-4 py-2">
                 <Link
                   href="/management"
-                  className={`block text-[18px] ${pathname === '/management' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                  className={`block text-[18px] ${
+                    pathname === "/management"
+                      ? "font-semibold text-[#FF725E]"
+                      : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                  } font-poppins transition-colors`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Management
@@ -139,7 +175,11 @@ const Navbar = () => {
               <li className="px-4 py-2">
                 <Link
                   href="/news"
-                  className={`block text-[18px] ${pathname === '/news' ? 'font-semibold text-[#FF725E]' : 'font-normal text-[#22343D] hover:text-[#FF725E]'} font-poppins transition-colors`}
+                  className={`block text-[18px] ${
+                    pathname === "/news"
+                      ? "font-semibold text-[#FF725E]"
+                      : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                  } font-poppins transition-colors`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   News & Event
