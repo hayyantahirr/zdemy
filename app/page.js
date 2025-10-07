@@ -1,14 +1,15 @@
 import React from "react";
 import HeroSection from "@/components/home/Carousel";
 import ActivitiesSection from "@/components/home/ActivitiesSection";
-import BlogSection from "@/components/home/BlogSection";
+import TeamSection from "@/components/home/TeamSection";
+
 
 const Page = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
       <ActivitiesSection />
-      <BlogSection />
+      <TeamSection />
     </main>
   );
 };

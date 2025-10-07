@@ -1,22 +1,19 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const ActivityCard = ({ title, description, imageSrc }) => {
   return (
     <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-      <div className="w-full md:w-1/2 lg:w-2/5">
+      <div className="w-full md:w-1/2 lg:w-2/5 max-w-[240px] md:max-w-none">
         <div className="relative w-full aspect-square rounded-full overflow-hidden">
-          <Image 
-            src={imageSrc} 
-            alt={title} 
-            fill
-            className="object-cover"
-          />
+          <Image src={imageSrc} alt={title} fill className="object-cover" />
         </div>
       </div>
       <div className="w-full md:w-1/2 lg:w-3/5 text-center md:text-left">
-        <h3 className="text-2xl md:text-3xl font-bold text-[#FF725E] mb-4">{title}</h3>
-        <p className="text-[#FF725E] text-base md:text-lg">{description}</p>
+        <h3 className="text-xl md:text-3xl font-bold text-[#FF725E] mb-4">
+          {title}
+        </h3>
+        <p className="text-[#FF725E] text-sm md:text-lg">{description}</p>
       </div>
     </div>
   );
@@ -25,20 +22,23 @@ const ActivityCard = ({ title, description, imageSrc }) => {
 const ActivitiesSection = () => {
   const activities = [
     {
-      title: "Painting",
-      description: "Painting is the expression or application of human creative skill and imagination, typically in a visual form.",
-      imageSrc: "/images/painting-activity.jpg"
+      title: "GCSE (aka OLevels)",
+      description:
+        "We have varity of qualified teachers certified by cambridge for your child to help them in their GCSE examinations.",
+      imageSrc: "/images/gcse.jpg",
     },
     {
-      title: "Sport",
-      description: "Sports are games such as football and basketball and other competitive leisure activities which need physical effort and skill.",
-      imageSrc: "/images/sport-activity.jpg"
+      title: "IGCSE",
+      description:
+        "We have varity of qualified teachers certified by cambridge for your child to help them in their IGCSE examinations.",
+      imageSrc: "/images/igcse.png",
     },
     {
-      title: "Entertainment",
-      description: "Entertainment is a form of activity that holds the attention and interest of an audience or gives pleasure and delight.",
-      imageSrc: "/images/entertainment-activity.jpg"
-    }
+      title: "A-Levels",
+      description:
+        "We have varity of qualified teachers certified by cambridge for your child to help them in their A-Levels examinations.",
+      imageSrc: "/images/alevels.jpeg",
+    },
   ];
 
   return (
@@ -46,17 +46,20 @@ const ActivitiesSection = () => {
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Title */}
         <div className="flex flex-col items-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#FF725E] mb-4">Our Activities</h2>
-          <div className="flex w-48 h-2 relative">
-            <div className="w-full h-full bg-[#22343D] rounded-md"></div>
-            <div className="absolute left-0 w-16 h-full bg-[#FF725E] rounded-md"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#FF725E] mb-4">
+            <span className="text-black">What do we </span>Offer ?
+          </h2>
+          <div className=" w-48 h-5 ">
+            <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
+
+            <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
           </div>
         </div>
-        
+
         {/* Activities */}
-        <div className="flex flex-col gap-16 md:gap-24">
+        <div className="flex flex-col md:flex-row gap-16 md:gap-24 ">
           {activities.map((activity, index) => (
-            <ActivityCard 
+            <ActivityCard
               key={index}
               title={activity.title}
               description={activity.description}

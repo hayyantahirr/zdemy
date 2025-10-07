@@ -1,71 +1,52 @@
-"use client";
-import React, { useState, useEffect } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
+import CarouselComponent from "../shared/CarouselComponent";
 
 const Carousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Auto-advance carousel every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((current) => (current === 2 ? 0 : current + 1));
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const slides = [
+    {
+      id: 1,
+      image: "/images/carousel-1.jpg",
+      alt: "Slide 1"
+    },
+    {
+      id: 2,
+      image: "/images/carousel-2.jpg",
+      alt: "Slide 2"
+    },
+    {
+      id: 3,
+      image: "/images/carousel-3.jpg",
+      alt: "Slide 3"
+    }
+  ];
 
   return (
     <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-      {/* Carousel Images */}
-      <div
-        className="absolute inset-0 flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      <CarouselComponent
+        itemsToShow={1}
+        autoRotate={true}
+        interval={3000}
+        totalItems={slides.length}
+        renderIndicators={true}
+        className="h-full"
       >
-        <div className="relative w-full h-full flex-shrink-0">
-          <Image
-            src="/images/carousel-1.jpg"
-            alt="Slide 1"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="relative w-full h-full flex-shrink-0">
-          <Image
-            src="/images/carousel-2.jpg"
-            alt="Slide 2"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative w-full h-full flex-shrink-0">
-          <Image
-            src="/images/carousel-3.jpg"
-            alt="Slide 3"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
+        {slides.map((slide) => (
+          <div key={slide.id} className="relative w-full h-full flex-shrink-0">
+            <Image
+              src={slide.image}
+              alt={slide.alt}
+              fill
+              className="object-cover"
+              priority={slide.id === 1}
+            />
+          </div>
+        ))}
+      </CarouselComponent>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#FF725E] opacity-65"></div>
-
-      {/* Radio buttons */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
-        {[0, 1, 2].map((idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveIndex(idx)}
-            className="w-4 h-4 rounded-full border-2 border-white focus:outline-none"
-          >
-            {activeIndex === idx && (
-              <div className="w-full h-full rounded-full bg-white scale-50"></div>
-            )}
-          </button>
-        ))}
-      </div>
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center z-10">
@@ -82,7 +63,10 @@ const Carousel = () => {
               their goals for more than 10 years.
             </p>
             <div className="flex items-center">
-              <Link className="bg-white text-[#22343D] px-6 py-3 rounded-md flex items-center gap-2 hover:bg-gray-100 transition-colors cursor-pointer" href={"/about"}>
+              <Link
+                className="bg-white text-[#22343D] px-6 py-3 rounded-md flex items-center gap-2 hover:bg-gray-100 transition-colors cursor-pointer"
+                href={"/about"}
+              >
                 More info
                 <svg
                   width="16"
