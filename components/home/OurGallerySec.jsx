@@ -17,7 +17,7 @@ const OurGallerySec = () => {
           <h2 className="text-black text-2xl md:text-3xl font-medium text-center">
             Our <span className="text-[#FF725E]">Gallery</span>
           </h2>
-         <div className=" w-48 h-5 ">
+          <div className=" w-48 h-5 ">
             <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
 
             <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>

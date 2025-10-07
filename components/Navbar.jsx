@@ -22,7 +22,7 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden flex items-center p-2 rounded-md text-[#22343D]"
+          className="lg:hidden flex items-center p-2 rounded-md text-[#22343D]"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -52,7 +52,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:block mr-15">
+        <nav className="hidden lg:block mr-15">
           <ul className="flex gap-30">
             <li>
               <Link
@@ -90,18 +90,7 @@ const Navbar = () => {
                 Management
               </Link>
             </li>
-            <li>
-              <Link
-                href="/news"
-                className={`text-[18px] md:text-[20px] ${
-                  pathname === "/news"
-                    ? "font-semibold text-[#FF725E]"
-                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
-                } font-poppins transition-colors`}
-              >
-                News & Event
-              </Link>
-            </li>
+
             <li>
               <Link
                 href="/gallery"
@@ -131,7 +120,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="absolute top-[60px] left-0 right-0 bg-white shadow-md md:hidden z-50">
+          <div className="absolute top-[60px] left-0 right-0 bg-white shadow-md lg:hidden z-50">
             <ul className="flex flex-col py-4">
               <li className="px-4 py-2">
                 <Link

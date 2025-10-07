@@ -75,7 +75,7 @@ const WhatsappIcon = () => (
 const TeamCard = ({ image, position, name, description }) => {
   return (
     <div className="bg-[#FfFfFf] rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 w-[70%] max-w-sm mx-auto">
-      <div className="h-[300px]  md:h-[180px] lg:h-[280px] relative">
+      <div className="h-[300px]  md:h-[250px] lg:h-[280px] relative">
         <Image
           src={image}
           alt={name}
@@ -144,7 +144,7 @@ const TeamSection = () => {
     <section className="bg-[#F2F2F2] py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center mb-5">
-          <h2 className="text-black text-2xl md:text-3xl font-medium text-center">
+          <h2 className="text-black text-2xl lg:text-3xl font-medium text-center">
             Meet Our <span className="text-[#FF725E]">Management</span> 
           </h2>
 
@@ -162,7 +162,7 @@ const TeamSection = () => {
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-1  lg:grid-cols-3 gap-6 px-4 md:px-10 lg:px-10">
+        <div className="grid grid-cols-1  lg:grid-cols-3 gap-6 px-4 md:px-8 lg:px-10">
           {teamMembers.map((member) => (
             <TeamCard
               key={member.id}

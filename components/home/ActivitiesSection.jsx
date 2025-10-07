@@ -57,7 +57,7 @@ const ActivitiesSection = () => {
         </div>
 
         {/* Activities */}
-        <div className="flex flex-col md:flex-row gap-16 md:gap-24 ">
+        <div className="flex flex-col lg:flex-row gap-16 md:gap-24 ">
           {activities.map((activity, index) => (
             <ActivityCard
               key={index}
