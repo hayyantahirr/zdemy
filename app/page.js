@@ -1,11 +1,16 @@
 import React from "react";
+import HeroSection from "@/components/home/Carousel";
+import ActivitiesSection from "@/components/home/ActivitiesSection";
+import BlogSection from "@/components/home/BlogSection";
 
-const page = () => {
+const Page = () => {
   return (
-    <>
-      <div>page</div>
-    </>
+    <main className="min-h-screen">
+      <HeroSection />
+      <ActivitiesSection />
+      <BlogSection />
+    </main>
   );
 };
 
-export default page;
+export default Page;
