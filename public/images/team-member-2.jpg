@@ -1,6 +1,0 @@
-<svg width="300" height="281" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="281" fill="#FF725E" opacity="0.2"/>
-  <rect x="75" y="40" width="150" height="150" rx="75" fill="#FF725E" opacity="0.6"/>
-  <text x="150" y="220" font-family="Arial" font-size="16" text-anchor="middle" fill="#333">Headmistress</text>
-  <text x="150" y="250" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">Team Member 2</text>
-</svg>

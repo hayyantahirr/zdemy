@@ -144,8 +144,8 @@ const TeamSection = () => {
     <section className="bg-[#F2F2F2] py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center mb-5">
-          <h2 className="text-[#FF725E] text-2xl md:text-3xl font-medium text-center">
-            Meet Our Managment
+          <h2 className="text-black text-2xl md:text-3xl font-medium text-center">
+            Meet Our <span className="text-[#FF725E]">Management</span> 
           </h2>
 
           <div className=" w-48 h-5 ">
