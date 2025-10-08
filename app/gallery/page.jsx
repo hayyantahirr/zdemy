@@ -75,18 +75,20 @@ const galleryImages = [
 // Server component for the gallery page
 const GalleryPage = async ({ searchParams }) => {
   // ✅ Await searchParams itself once at the top
-const params = await searchParams;
-const page = params?.page ? parseInt(params.page) : 1;
+  const params = await searchParams;
+  const page = params?.page ? parseInt(params.page) : 1;
 
-const imagesPerPage = 6;
-const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
+  const imagesPerPage = 6;
+  const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
 
-const indexOfLastImage = page * imagesPerPage;
-const indexOfFirstImage = indexOfLastImage - imagesPerPage;
-const currentImages = galleryImages.slice(indexOfFirstImage, indexOfLastImage);
+  const indexOfLastImage = page * imagesPerPage;
+  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+  const currentImages = galleryImages.slice(
+    indexOfFirstImage,
+    indexOfLastImage
+  );
 
-const showPrevButton = page > 1;
-
+  const showPrevButton = page > 1;
 
   return (
     <>
@@ -98,9 +100,12 @@ const showPrevButton = page > 1;
         <div className="flex flex-col items-center mb-12">
           <h2 className="text-[30px] font-bold text-[#FF725E] text-center">
             {" "}
-            Our Gallery
+            <span className="text-4xl text-black">Our</span> Gallery
           </h2>
-          <div className="w-36 h-[2px] bg-[#22343D] mt-2"></div>
+          <div className=" w-48 h-5 ">
+            <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
+            <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
+          </div>
         </div>
 
         {/* Gallery Grid */}
