@@ -73,22 +73,20 @@ const galleryImages = [
 ];
 
 // Server component for the gallery page
-const GalleryPage = ({ searchParams }) => {
-  // Get page from URL query params, default to page 1
-  const page = searchParams?.page ? parseInt(searchParams.page) : 1;
-  const imagesPerPage = 6;
-  const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
+const GalleryPage = async ({ searchParams }) => {
+  // ✅ Await searchParams itself once at the top
+const params = await searchParams;
+const page = params?.page ? parseInt(params.page) : 1;
 
-  // Calculate images to display on current page
-  const indexOfLastImage = page * imagesPerPage;
-  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
-  const currentImages = galleryImages.slice(
-    indexOfFirstImage,
-    indexOfLastImage
-  );
+const imagesPerPage = 6;
+const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
 
-  // Determine if previous button should be shown (only after page 1)
-  const showPrevButton = page > 1;
+const indexOfLastImage = page * imagesPerPage;
+const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+const currentImages = galleryImages.slice(indexOfFirstImage, indexOfLastImage);
+
+const showPrevButton = page > 1;
+
 
   return (
     <>
