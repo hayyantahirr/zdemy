@@ -51,7 +51,6 @@ const ActivitiesSection = () => {
           </h2>
           <div className=" w-48 h-5 ">
             <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
-
             <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
           </div>
         </div>
