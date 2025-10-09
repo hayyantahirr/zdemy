@@ -12,46 +12,48 @@ const page = () => {
 
   // State for validation errors
   const [errors, setErrors] = useState({});
-  
+
   const currentDate = new Date().toLocaleDateString();
 
   // Simple validation function - returns true if valid, false if invalid
   const validateForm = () => {
     // Reset errors
     const newErrors = {};
-    
+
     // Name validation - required
     if (!user_name.current?.value?.trim()) {
       newErrors.user_name = "Name is required";
     }
-    
+
     // Email validation - required and format check
     if (!user_email.current?.value?.trim()) {
       newErrors.user_email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user_email.current.value)) {
       newErrors.user_email = "Invalid email format";
     }
-    
+
     // Address validation - required
     if (!user_address.current?.value?.trim()) {
       newErrors.user_address = "Address is required";
     }
-    
+
     // Mobile validation - required and number check
     if (!mobile_number.current?.value?.trim()) {
       newErrors.mobile_number = "Mobile number is required";
-    } else if (!/^\d{10,}$/.test(mobile_number.current.value.replace(/\D/g, ''))) {
+    } else if (
+      !/^\d{10,}$/.test(mobile_number.current.value.replace(/\D/g, ""))
+    ) {
       newErrors.mobile_number = "Enter at least 10 digits";
     }
-    
+
     // Position validation - required
     if (!position_name.current?.value?.trim()) {
       newErrors.position_name = "Position is required";
     }
-    
+
     // Update error state
     setErrors(newErrors);
-    
+
     // Form is valid if no errors
     return Object.keys(newErrors).length === 0;
   };
@@ -59,12 +61,12 @@ const page = () => {
   // Move data object inside the submit handler where refs are available
   async function handleSubmit(e) {
     e.preventDefault();
-    
+
     // Validate form before submission
     if (!validateForm()) {
       return; // Stop if validation fails
     }
-    
+
     // Create data object here where refs are guaranteed to be initialized
     const data = {
       service_id: "service_51rdiyg", // from EmailJS
@@ -79,7 +81,7 @@ const page = () => {
         currentYear: new Date().getFullYear(),
       },
     };
-    
+
     try {
       const res = await axios.post(
         "https://api.emailjs.com/api/v1.0/email/send",
@@ -113,19 +115,29 @@ const page = () => {
               <input
                 type="text"
                 placeholder="Full Name"
-                className={`w-full border ${errors.user_name ? 'border-red-500' : 'border-gray-300'} p-3 focus:outline-none`}
+                className={`w-full border ${
+                  errors.user_name ? "border-red-500" : "border-gray-300"
+                } p-3 focus:outline-none`}
                 ref={user_name}
               />
-              {errors.user_name && <p className="text-red-500 text-xs mt-1">{errors.user_name}</p>}
+              {errors.user_name && (
+                <p className="text-red-500 text-xs mt-1">{errors.user_name}</p>
+              )}
             </div>
             <div>
               <input
                 type="text"
                 placeholder="Address"
-                className={`w-full border ${errors.user_address ? 'border-red-500' : 'border-gray-300'} p-3 focus:outline-none`}
+                className={`w-full border ${
+                  errors.user_address ? "border-red-500" : "border-gray-300"
+                } p-3 focus:outline-none`}
                 ref={user_address}
               />
-              {errors.user_address && <p className="text-red-500 text-xs mt-1">{errors.user_address}</p>}
+              {errors.user_address && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.user_address}
+                </p>
+              )}
             </div>
 
             {/* Second row */}
@@ -133,15 +145,21 @@ const page = () => {
               <input
                 type="tel"
                 placeholder="Mobile Number"
-                className={`w-full border ${errors.mobile_number ? 'border-red-500' : 'border-gray-300'} p-3 focus:outline-none`}
+                className={`w-full border ${
+                  errors.mobile_number ? "border-red-500" : "border-gray-300"
+                } p-3 focus:outline-none`}
                 ref={mobile_number}
               />
-              {errors.mobile_number && <p className="text-red-500 text-xs mt-1">{errors.mobile_number}</p>}
+              {errors.mobile_number && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.mobile_number}
+                </p>
+              )}
             </div>
             <div>
               <input
                 type="tel"
-                placeholder="substitute phone number"
+                placeholder="Mobile number 2 (optional)"
                 className="w-full border border-gray-300 p-3 focus:outline-none"
               />
             </div>
@@ -151,19 +169,29 @@ const page = () => {
               <input
                 type="email"
                 placeholder="E-mail Address"
-                className={`w-full border ${errors.user_email ? 'border-red-500' : 'border-gray-300'} p-3 focus:outline-none`}
+                className={`w-full border ${
+                  errors.user_email ? "border-red-500" : "border-gray-300"
+                } p-3 focus:outline-none`}
                 ref={user_email}
               />
-              {errors.user_email && <p className="text-red-500 text-xs mt-1">{errors.user_email}</p>}
+              {errors.user_email && (
+                <p className="text-red-500 text-xs mt-1">{errors.user_email}</p>
+              )}
             </div>
             <div>
               <input
                 type="text"
                 placeholder="Position"
-                className={`w-full border ${errors.position_name ? 'border-red-500' : 'border-gray-300'} p-3 focus:outline-none`}
+                className={`w-full border ${
+                  errors.position_name ? "border-red-500" : "border-gray-300"
+                } p-3 focus:outline-none`}
                 ref={position_name}
               />
-              {errors.position_name && <p className="text-red-500 text-xs mt-1">{errors.position_name}</p>}
+              {errors.position_name && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.position_name}
+                </p>
+              )}
             </div>
           </div>
 
