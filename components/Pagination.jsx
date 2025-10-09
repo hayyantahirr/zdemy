@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Pagination = ({ currentRoute }) => {
@@ -15,7 +16,9 @@ const Pagination = ({ currentRoute }) => {
           <h1 className="text-5xl">{currentRoute.toUpperCase()}</h1>
         </div>
         <div className="mt-5">
-          <span className="hover:underline cursor-pointer">Home </span>
+          <Link href={"/"} className="hover:underline cursor-pointer">
+            Home
+          </Link>
           <span className="mx-2">→</span>
           <span className="font-semibold"> {currentRoute}</span>
         </div>

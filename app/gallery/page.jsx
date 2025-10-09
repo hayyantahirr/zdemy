@@ -1,5 +1,5 @@
 import React from "react";
-import Pagination from "@/components/managementComponents/Pagination";
+import Pagination from "@/components/Pagination";
 import Image from "next/image";
 import GalleryPagination from "@/components/galleryComponents/GalleryPagination";
 

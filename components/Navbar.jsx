@@ -105,7 +105,31 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/contact-us"
+                href="/admission"
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/contact-us"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
+              >
+                Admissions
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/admission"
+                className={`text-[18px] md:text-[20px] ${
+                  pathname === "/contact-us"
+                    ? "font-semibold text-[#FF725E]"
+                    : "font-normal text-[#22343D] hover:text-[#FF725E]"
+                } font-poppins transition-colors`}
+              >
+                Careers
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/admission"
                 className={`text-[18px] md:text-[20px] ${
                   pathname === "/contact-us"
                     ? "font-semibold text-[#FF725E]"
@@ -185,11 +209,11 @@ const Navbar = () => {
               </li>
               <li className="px-4 py-2">
                 <Link
-                  href="/contact"
+                  href="/admission"
                   className="block text-[18px] font-normal text-[#22343D] font-poppins hover:text-[#FF725E] transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Contact us
+                  Admissions
                 </Link>
               </li>
             </ul>

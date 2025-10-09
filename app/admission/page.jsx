@@ -4,7 +4,7 @@ import React from "react";
 const page = () => {
   return (
     <>
-      <Pagination currentRoute="Contact us" />
+      <Pagination currentRoute="Admissions" />
     </>
   );
 };

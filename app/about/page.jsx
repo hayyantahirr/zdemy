@@ -1,4 +1,4 @@
-import Pagination from "@/components/managementComponents/Pagination";
+import Pagination from "@/components/Pagination";
 import React from "react";
 import Image from "next/image";
 
@@ -106,13 +106,13 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#FF725E] mb-2">
-              <span className="text-4xl font-bold text-black">Life</span>{" "}
-              at Zdemy
+              <span className="text-4xl font-bold text-black">Life</span> at
+              Zdemy
             </h2>
             <div className="mx-auto w-48 h-5 ">
-                <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
-                <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
-              </div>
+              <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
+              <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
