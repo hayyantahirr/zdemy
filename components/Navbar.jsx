@@ -15,7 +15,7 @@ const Navbar = () => {
     <header className="w-full h-[60px] md:h-[90px] bg-white shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] relative">
       <div className=" h-full mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
-          <h1 className="text-[24px] md:text-[28px] font-semibold text-[#1F2E35] font-poppins ml-7">
+          <h1 className="text-[24px] md:text-[28px] font-semibold text-[#1F2E35] font-poppins md:ml-15">
             Zdemy
           </h1>
         </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:block mr-15">
-          <ul className="flex gap-30">
+          <ul className="flex gap-15">
             <li>
               <Link
                 href="/"
@@ -107,7 +107,7 @@ const Navbar = () => {
               <Link
                 href="/admission"
                 className={`text-[18px] md:text-[20px] ${
-                  pathname === "/contact-us"
+                  pathname === "/admission"
                     ? "font-semibold text-[#FF725E]"
                     : "font-normal text-[#22343D] hover:text-[#FF725E]"
                 } font-poppins transition-colors`}
@@ -117,9 +117,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/admission"
+                href="/careers"
                 className={`text-[18px] md:text-[20px] ${
-                  pathname === "/contact-us"
+                  pathname === "/careers"
                     ? "font-semibold text-[#FF725E]"
                     : "font-normal text-[#22343D] hover:text-[#FF725E]"
                 } font-poppins transition-colors`}
@@ -129,7 +129,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/admission"
+                href="/contact-us"
                 className={`text-[18px] md:text-[20px] ${
                   pathname === "/contact-us"
                     ? "font-semibold text-[#FF725E]"
@@ -214,6 +214,24 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Admissions
+                </Link>
+              </li>
+              <li className="px-4 py-2">
+                <Link
+                  href="/careers"
+                  className="block text-[18px] font-normal text-[#22343D] font-poppins hover:text-[#FF725E] transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Careers
+                </Link>
+              </li>
+              <li className="px-4 py-2">
+                <Link
+                  href="/contact-us"
+                  className="block text-[18px] font-normal text-[#22343D] font-poppins hover:text-[#FF725E] transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
