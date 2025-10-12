@@ -68,7 +68,7 @@ const TeacherCard = ({ teacher }) => {
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
           isExpanded
-            ? "max-h-[600px] sm:max-h-96 opacity-100"
+            ? "max-h-[600px] md:max-h-96 opacity-100"
             : "max-h-0 opacity-0"
         }`}
       >
