@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import AnimateOnScroll from "../AnimateOnScroll";
 
-const TeacherCard = ({ teacher }) => {
+const TeacherCard = ({ teacher, delay = 0 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [imageVisible, setImageVisible] = useState(true);
 
@@ -18,7 +19,8 @@ const TeacherCard = ({ teacher }) => {
   };
 
   return (
-    <div className="w-[95%] sm:w-[80%] mx-auto mb-6">
+    <AnimateOnScroll animation="fadeInUp" duration={1} delay={delay}>
+      <div className="w-[95%] sm:w-[80%] mx-auto mb-6">
       {/* Main Card */}
       <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-visible">
         <div className="flex items-center justify-between p-4 sm:p-6 h-16 sm:h-20">
@@ -286,7 +288,8 @@ const TeacherCard = ({ teacher }) => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </AnimateOnScroll>
   );
 };
 

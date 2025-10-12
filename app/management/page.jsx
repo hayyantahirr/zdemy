@@ -88,7 +88,7 @@ const Page = () => {
                 </h2>
                 <div className="space-y-6">
                   {teachers.map((teacher, index) => (
-                    <TeacherCard key={index} teacher={teacher} />
+                    <TeacherCard key={index} teacher={teacher} delay={0.2 + index * 0.1} />
                   ))}
                 </div>
               </div>
@@ -110,7 +110,7 @@ const Page = () => {
                 </h2>
                 <div className="space-y-6">
                   {teachers.map((teacher, index) => (
-                    <TeacherCard key={index} teacher={teacher} />
+                    <TeacherCard key={index} teacher={teacher} delay={0.2 + index * 0.1} />
                   ))}
                 </div>
               </div>

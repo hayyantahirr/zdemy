@@ -2,6 +2,7 @@
 import Pagination from "@/components/Pagination";
 import axios from "axios";
 import React, { useRef, useState } from "react";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const page = () => {
   const user_name = useRef(null);
@@ -99,129 +100,145 @@ const page = () => {
       <Pagination currentRoute="Careers" />
 
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="flex flex-col md:flex-row items-start gap-6 mb-10">
-          <h1 className="text-4xl font-bold text-[#6b6b47]">JOIN US!</h1>
-          <p className="text-md opacity-40">
-            Our customer support team on the other side is swift,
-            <br />
-            feel free to send your questions.
-          </p>
-        </div>
+        <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.2}>
+          <div className="flex flex-col md:flex-row items-start gap-6 mb-10">
+            <h1 className="text-4xl font-bold text-[#6b6b47]">JOIN US!</h1>
+            <p className="text-md opacity-40">
+              Our customer support team on the other side is swift,
+              <br />
+              feel free to send your questions.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* First row */}
-            <div>
-              <input
-                type="text"
-                placeholder="Full Name"
-                className={`w-full border ${
-                  errors.user_name ? "border-red-500" : "border-gray-300"
-                } p-3 focus:outline-none`}
-                ref={user_name}
-              />
-              {errors.user_name && (
-                <p className="text-red-500 text-xs mt-1">{errors.user_name}</p>
-              )}
+          <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.4}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* First row */}
+              <div>
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className={`w-full border ${
+                    errors.user_name ? "border-red-500" : "border-gray-300"
+                  } p-3 focus:outline-none focus:ring-2 focus:ring-[#FF725E] transition-all`}
+                  ref={user_name}
+                />
+                {errors.user_name && (
+                  <p className="text-red-500 text-xs mt-1">{errors.user_name}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Address"
+                  className={`w-full border ${
+                    errors.user_address ? "border-red-500" : "border-gray-300"
+                  } p-3 focus:outline-none focus:ring-2 focus:ring-[#FF725E] transition-all`}
+                  ref={user_address}
+                />
+                {errors.user_address && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.user_address}
+                  </p>
+                )}
+              </div>
             </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Address"
-                className={`w-full border ${
-                  errors.user_address ? "border-red-500" : "border-gray-300"
-                } p-3 focus:outline-none`}
-                ref={user_address}
-              />
-              {errors.user_address && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.user_address}
-                </p>
-              )}
-            </div>
+          </AnimateOnScroll>
 
-            {/* Second row */}
-            <div>
-              <input
-                type="tel"
-                placeholder="Mobile Number"
-                className={`w-full border ${
-                  errors.mobile_number ? "border-red-500" : "border-gray-300"
-                } p-3 focus:outline-none`}
-                ref={mobile_number}
-              />
-              {errors.mobile_number && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.mobile_number}
-                </p>
-              )}
+          <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.6}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Second row */}
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Mobile Number"
+                  className={`w-full border ${
+                    errors.mobile_number ? "border-red-500" : "border-gray-300"
+                  } p-3 focus:outline-none focus:ring-2 focus:ring-[#FF725E] transition-all`}
+                  ref={mobile_number}
+                />
+                {errors.mobile_number && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.mobile_number}
+                  </p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Mobile number 2 (optional)"
+                  className="w-full border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#FF725E] transition-all"
+                />
+              </div>
             </div>
-            <div>
-              <input
-                type="tel"
-                placeholder="Mobile number 2 (optional)"
-                className="w-full border border-gray-300 p-3 focus:outline-none"
-              />
-            </div>
+          </AnimateOnScroll>
 
-            {/* Third row */}
-            <div>
-              <input
-                type="email"
-                placeholder="E-mail Address"
-                className={`w-full border ${
-                  errors.user_email ? "border-red-500" : "border-gray-300"
-                } p-3 focus:outline-none`}
-                ref={user_email}
-              />
-              {errors.user_email && (
-                <p className="text-red-500 text-xs mt-1">{errors.user_email}</p>
-              )}
+          <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.8}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Third row */}
+              <div>
+                <input
+                  type="email"
+                  placeholder="E-mail Address"
+                  className={`w-full border ${
+                    errors.user_email ? "border-red-500" : "border-gray-300"
+                  } p-3 focus:outline-none focus:ring-2 focus:ring-[#FF725E] transition-all`}
+                  ref={user_email}
+                />
+                {errors.user_email && (
+                  <p className="text-red-500 text-xs mt-1">{errors.user_email}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Position"
+                  className={`w-full border ${
+                    errors.position_name ? "border-red-500" : "border-gray-300"
+                  } p-3 focus:outline-none focus:ring-2 focus:ring-[#FF725E] transition-all`}
+                  ref={position_name}
+                />
+                {errors.position_name && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.position_name}
+                  </p>
+                )}
+              </div>
             </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Position"
-                className={`w-full border ${
-                  errors.position_name ? "border-red-500" : "border-gray-300"
-                } p-3 focus:outline-none`}
-                ref={position_name}
-              />
-              {errors.position_name && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.position_name}
-                </p>
-              )}
-            </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* File uploads */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-center gap-3">
-              <label className="text-gray-600">CV:</label>
-              <input
-                type="file"
-                className="file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:bg-gray-100 hover:file:bg-gray-200"
-              />
+          <AnimateOnScroll animation="fadeInUp" duration={1} delay={1.0}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center gap-3">
+                <label className="text-gray-600">CV:</label>
+                <input
+                  type="file"
+                  className="file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:bg-gray-100 hover:file:bg-gray-200 file:rounded file:transition-all"
+                />
+              </div>
+              <div className="flex items-center gap-3">
+                <label className="text-gray-600">Cover Letter:</label>
+                <input
+                  type="file"
+                  className="file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:bg-gray-100 hover:file:bg-gray-200 file:rounded file:transition-all"
+                />
+              </div>
             </div>
-            <div className="flex items-center gap-3">
-              <label className="text-gray-600">Cover Letter:</label>
-              <input
-                type="file"
-                className="file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:bg-gray-100 hover:file:bg-gray-200"
-              />
-            </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Submit button */}
-          <div>
-            <button
-              type="submit"
-              className="bg-[#FF725E] text-white py-3 px-8 hover:bg-[#ff715eb5] transition-colors"
-            >
-              Click to Apply
-            </button>
-          </div>
+          <AnimateOnScroll animation="fadeInUp" duration={1} delay={1.2}>
+            <div>
+              <button
+                type="submit"
+                className="bg-[#FF725E] text-white py-3 px-8 hover:bg-[#ff715eb5] transition-all duration-300 hover:scale-105 rounded"
+              >
+                Click to Apply
+              </button>
+            </div>
+          </AnimateOnScroll>
         </form>
       </div>
     </>

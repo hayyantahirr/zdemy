@@ -1,6 +1,7 @@
 import React from "react";
 import Pagination from "@/components/Pagination";
 import Image from "next/image";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import GalleryPagination from "@/components/galleryComponents/GalleryPagination";
 
 // Array to store image routes with relevant names for alt tags
@@ -97,42 +98,50 @@ const GalleryPage = async ({ searchParams }) => {
       {/* Gallery Container */}
       <div className="relative w-full bg-white py-16">
         {/* Title Section */}
-        <div className="flex flex-col items-center mb-12">
-          <h2 className="text-[30px] font-bold text-[#FF725E] text-center">
-            {" "}
-            <span className="text-4xl text-black">Our</span> Gallery
-          </h2>
-          <div className=" w-48 h-5 ">
-            <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
-            <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
+        <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.2}>
+          <div className="flex flex-col items-center mb-12">
+            <h2 className="text-[30px] font-bold text-[#FF725E] text-center">
+              {" "}
+              <span className="text-4xl text-black">Our</span> Gallery
+            </h2>
+            <div className=" w-48 h-5 ">
+              <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
+              <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Gallery Grid */}
         <div className="w-[80%] mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {currentImages.map((image) => (
-              <div
-                className="relative h-[250px] w-full overflow-hidden rounded-[5px]"
-                key={image.id}
+            {currentImages.map((image, index) => (
+              <AnimateOnScroll 
+                key={image.id} 
+                animation="fadeInUp" 
+                duration={1} 
+                delay={0.4 + index * 0.1}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover hover:scale-110 transition-transform duration-300"
-                />
-              </div>
+                <div className="relative h-[250px] w-full overflow-hidden rounded-[5px]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
 
         {/* Pagination Component */}
-        <GalleryPagination
-          currentPage={page}
-          totalPages={totalPages}
-          showPrevButton={showPrevButton}
-        />
+        <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.8}>
+          <GalleryPagination
+            currentPage={page}
+            totalPages={totalPages}
+            showPrevButton={showPrevButton}
+          />
+        </AnimateOnScroll>
       </div>
     </>
   );

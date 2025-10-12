@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnScroll from "../AnimateOnScroll";
 
 // Social media icon components
 const FacebookIcon = () => (
@@ -72,42 +73,44 @@ const WhatsappIcon = () => (
 );
 
 // TeamCard component
-const TeamCard = ({ image, position, name, description }) => {
+const TeamCard = ({ image, position, name, description, delay = 0 }) => {
   return (
-    <div className="bg-[#FfFfFf] rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 w-[70%] max-w-sm mx-auto">
-      <div className="h-[300px]  md:h-[250px] lg:h-[280px] relative">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          optimized="true"
-          className="object-cover object-top rounded-t-lg"
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-        />
-      </div>
-      <div className="p-4 md:p-5">
-        <p className="text-[#FF725E] text-sm md:text-base">{position}</p>
-        <h3 className="text-[#FF725E] text-xl md:text-[22px] font-semibold">
-          {name}
-        </h3>
-        <p className="text-[#FF725E] text-sm md:text-base">{description}</p>
+    <AnimateOnScroll animation="fadeInUp" duration={1} delay={delay}>
+      <div className="bg-[#FfFfFf] rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:z-10 w-[70%] max-w-sm mx-auto">
+        <div className="h-[300px]  md:h-[250px] lg:h-[280px] relative">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            optimized="true"
+            className="object-cover object-top rounded-t-lg"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          />
+        </div>
+        <div className="p-4 md:p-5">
+          <p className="text-[#FF725E] text-sm md:text-base">{position}</p>
+          <h3 className="text-[#FF725E] text-xl md:text-[22px] font-semibold">
+            {name}
+          </h3>
+          <p className="text-[#FF725E] text-sm md:text-base">{description}</p>
 
-        <div className="flex gap-3 md:gap-4 mt-2">
-          <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
-            <FacebookIcon />
-          </div>
-          <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
-            <WhatsappIcon />
-          </div>
-          <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
-            <InstagramIcon />
-          </div>
-          <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
-            <TwitterIcon />
+          <div className="flex gap-3 md:gap-4 mt-2">
+            <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
+              <FacebookIcon />
+            </div>
+            <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
+              <WhatsappIcon />
+            </div>
+            <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
+              <InstagramIcon />
+            </div>
+            <div className="w-6 h-6 flex items-center justify-center hover:opacity-70 cursor-pointer">
+              <TwitterIcon />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AnimateOnScroll>
   );
 };
 
@@ -143,33 +146,36 @@ const TeamSection = () => {
   return (
     <section className="bg-[#F2F2F2] py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center mb-5">
-          <h2 className="text-black text-2xl lg:text-3xl font-medium text-center">
-            Meet Our <span className="text-[#FF725E]">Management</span> 
-          </h2>
+        <AnimateOnScroll animation="fadeInUp" duration={1} delay={0.2}>
+          <div className="flex flex-col items-center justify-center mb-5">
+            <h2 className="text-black text-2xl lg:text-3xl font-medium text-center">
+              Meet Our <span className="text-[#FF725E]">Management</span> 
+            </h2>
 
-          <div className=" w-48 h-5 ">
-            <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
+            <div className=" w-48 h-5 ">
+              <div className="w-48 h-1 bg-black mb-1 opacity-80 rounded "></div>
 
-            <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
+              <div className="ml-15 w-48 h-1 bg-[#FF725E] opacity-80 rounded"></div>
+            </div>
+            <div className="mt-4">
+              <Link
+                href="/management"
+                className="text-[#FF725E] font-medium hover:underline"
+              >
+                View Management Team →
+              </Link>
+            </div>
           </div>
-          <div className="mt-4">
-            <Link
-              href="/management"
-              className="text-[#FF725E] font-medium hover:underline"
-            >
-              View Management Team →
-            </Link>
-          </div>
-        </div>
+        </AnimateOnScroll>
         <div className="grid grid-cols-1  lg:grid-cols-3 gap-6 px-4 md:px-8 lg:px-10">
-          {teamMembers.map((member) => (
+          {teamMembers.map((member, index) => (
             <TeamCard
               key={member.id}
               image={member.image}
               position={member.position}
               name={member.name}
               description={member.description}
+              delay={0.4 + index * 0.2}
             />
           ))}
         </div>
