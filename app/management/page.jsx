@@ -4,7 +4,7 @@ import FounderSection from "@/components/managementComponents/FounderSection";
 import React from "react";
 
 const Page = () => {
-  const teachers = [
+  const teachersForOlevel = [
     {
       name: "Jennifer Florenzo",
       image: "/images/teacher-2-transparent-bg.png",
@@ -12,6 +12,30 @@ const Page = () => {
         "A dedicated educator with 10 years of experience in teaching mathematics and physics. Jennifer brings innovative teaching methods and a passion for helping students achieve their academic goals. She holds a Master's degree in Mathematics Education and has been recognized for her outstanding contribution to student development.",
       aGrade: 100,
       a: 50,
+      socialLinks: [
+        {
+          name: "Facebook",
+          facebookLink: "https://www.facebook.com/",
+        },
+        {
+          name: "X",
+          xLink: "https://x.com/",
+        },
+        {
+          name: "LinkedIn",
+          linkedInLink: "https://www.linkedin.com/",
+        },
+      ],
+    },
+  ];
+  const teachersForAlevel = [
+    {
+      name: "Boakye Oluwafemi",
+      image: "/images/teacher-3-transparent-bg.png",
+      description:
+        "Mr.Boakye a dedicated teacher for A-level Mathematics and Physics.Teacher with 6 years of experience in teaching A-level Mathematics and Physics.",
+      aGrade: 150,
+      a: 60,
       socialLinks: [
         {
           name: "Facebook",
@@ -46,9 +70,25 @@ const Page = () => {
 
           {/* Founder Section */}
           <FounderSection />
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              Meet Our Faculty for O-level & IGCSE
+            </h1>
+          </div>
 
           <div className="space-y-6">
-            {teachers.map((teacher, index) => (
+            {teachersForOlevel.map((teacher, index) => (
+              <TeacherCard key={index} teacher={teacher} />
+            ))}
+          </div>
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              Meet Our Faculty for A-levels
+            </h1>
+          </div>
+
+          <div className="space-y-6">
+            {teachersForAlevel.map((teacher, index) => (
               <TeacherCard key={index} teacher={teacher} />
             ))}
           </div>

@@ -3,22 +3,22 @@ import Image from "next/image";
 
 const FounderSection = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto mb-12 bg-white rounded-2xl shadow-lg overflow-hidden">
-      <div className="flex flex-col lg:flex-row">
+    <div className="w-full max-w-7xl mx-auto mb-12 bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="flex flex-col lg:flex-row-reverse">
         {/* Left side - Content */}
-        <div className="flex-1 p-8 lg:p-12">
+        <div className="flex-1 p-5 lg:p-12">
           {/* Title */}
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#FF725E] mb-4 tracking-wide">
+          <h2 className="text-xl lg:text-4xl font-bold text-[#FF725E] mb-4 tracking-wide">
             THE FOUNDER
           </h2>
 
           {/* Name */}
-          <h3 className="text-xl lg:text-2xl font-semibold text-gray-800 mb-6">
+          <h3 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-6">
             MR. LOREM IPSUM
           </h3>
 
           {/* Description */}
-          <p className="text-gray-600 leading-relaxed text-base lg:text-lg mb-8">
+          <p className="text-gray-600 leading-relaxed text-sm lg:text-lg mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod temp incit ut labore dolore magna aliqua. computer science
             students Ut enim ad minim veniam. Lorem ipsum dolor sit amet,
@@ -89,7 +89,7 @@ const FounderSection = () => {
         </div>
 
         {/* Right side - Image */}
-        <div className="flex-1 relative min-h-[400px] lg:min-h-[500px]">
+        <div className="flex-1 relative min-h-[350px] lg:min-h-[500px]">
           <div className="absolute inset-0 bg-gradient-to-l from-gray-100 to-gray-200">
             <Image
               src="/images/teacher-1.jpg"
