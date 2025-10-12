@@ -93,6 +93,10 @@ const TeacherCard = ({ teacher }) => {
               <h4 className="text-lg font-medium text-gray-800 mb-3">
                 {teacher.name}
               </h4>
+              <h4 className="text-lg font-medium text-gray-800 mb-3">
+                <span className="text-[#FF725E]"> I Teach</span>{" "}
+                {teacher.subjects.join(" & ")}
+              </h4>
               <p className="text-gray-600 leading-relaxed text-sm mb-4">
                 {teacher.description}
               </p>

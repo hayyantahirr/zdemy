@@ -263,6 +263,18 @@ const Footer = () => {
               Copyright © {new Date().getFullYear()}. All Right Reserved.
             </p>
           </div>
+          <div className="mt-8 sm:mt-3 md:mt-5 text-center">
+            <p className="text-white text-sm sm:text-xs opacity-50">
+              powered by{" "}
+              <a
+                target="_blank"
+                href="https://hayyantahirr.vercel.app/"
+                className="hover:underline cursor-pointer text-[#FF725E]"
+              >
+                hayyantahirr
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
     </>
