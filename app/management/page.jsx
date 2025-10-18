@@ -2,24 +2,39 @@ import Pagination from "@/components/Pagination";
 import TeacherCard from "@/components/managementComponents/TeacherCard";
 import FounderSection from "@/components/managementComponents/FounderSection";
 import React from "react";
+import axios from "axios";
 
-const Page = () => {
-  const teachersForOlevel = [
-    {
-      name: "Jennifer Florenzo",
-      image: "/images/teacher-2-transparent-bg.png",
-      description:
-        "A dedicated educator with 10 years of experience in teaching mathematics and physics. Jennifer brings innovative teaching methods and a passion for helping students achieve their academic goals. She holds a Master's degree in Mathematics Education and has been recognized for her outstanding contribution to student development.",
-      aGrade: 100,
-      a: 50,
-      socialLinks: {
-        facebookLink: "https://www.facebook.com/",
-        xLink: "https://x.com/",
-        linkedInLink: "https://www.linkedin.com/",
-      },
-      subjects: ["Mathematics", "Physics"],
-    },
-  ];
+const Page = async () => {
+  // const teachersForOlevel = [
+  //   {
+  //     name: "Jennifer Florenzo",
+  //     image: "/images/teacher-2-transparent-bg.png",
+  //     description:
+  //       "A dedicated educator with 10 years of experience in teaching mathematics and physics. Jennifer brings innovative teaching methods and a passion for helping students achieve their academic goals. She holds a Master's degree in Mathematics Education and has been recognized for her outstanding contribution to student development.",
+  //     aGrade: 100,
+  //     a: 50,
+  //     socialLinks: {
+  //       facebookLink: "https://www.facebook.com/",
+  //       xLink: "https://x.com/",
+  //       linkedInLink: "https://www.linkedin.com/",
+  //     },
+  //     subjects: ["Mathematics", "Physics"],
+  //   },
+  //   {
+  //     name: "Asim Zameer",
+  //     image: "/images/teacher-3-transparent-bg.png",
+  //     description:
+  //       "A dedicated educator with 10 years of experience in teaching mathematics and physics. Jennifer brings innovative teaching methods and a passion for helping students achieve their academic goals. She holds a Master's degree in Mathematics Education and has been recognized for her outstanding contribution to student development.",
+  //     aGrade: 100,
+  //     a: 50,
+  //     socialLinks: {
+  //       facebookLink: "https://www.facebook.com/",
+  //       xLink: "https://x.com/",
+  //       linkedInLink: "https://www.linkedin.com/",
+  //     },
+  //     subjects: ["urdu"],
+  //   },
+  // ];
 
   const teachersForAlevel = [
     {
@@ -38,14 +53,42 @@ const Page = () => {
     },
   ];
 
+  let teachersForOlevel = [];
+
+  try {
+    const res = await axios.get("http://localhost:4000/teachersForOlevels/");
+    // Ensure we have an array, handle different response structures
+    teachersForOlevel = Array.isArray(res.data)
+      ? res.data
+      : Array.isArray(res.data.teachers)
+      ? res.data.teachers
+      : Array.isArray(res.data.data)
+      ? res.data.data
+      : [];
+  } catch (error) {
+    console.error("Error fetching teachers for O-level:", error);
+    teachersForOlevel = []; // Fallback to empty array
+  }
+
+  console.log(teachersForOlevel); // (prints on the server, not browser)
+
   // helper function to group teachers by subject
   const groupTeachersBySubject = (teachers) => {
+    // Add safety check to ensure teachers is an array
+    if (!Array.isArray(teachers)) {
+      console.warn("Teachers data is not an array:", teachers);
+      return {};
+    }
+
     const subjectMap = {};
     teachers.forEach((teacher) => {
-      teacher.subjects.forEach((subject) => {
-        if (!subjectMap[subject]) subjectMap[subject] = [];
-        subjectMap[subject].push(teacher);
-      });
+      // Add safety check for teacher.subjects
+      if (teacher && Array.isArray(teacher.subjects)) {
+        teacher.subjects.forEach((subject) => {
+          if (!subjectMap[subject]) subjectMap[subject] = [];
+          subjectMap[subject].push(teacher);
+        });
+      }
     });
     return subjectMap;
   };
@@ -88,7 +131,11 @@ const Page = () => {
                 </h2>
                 <div className="space-y-6">
                   {teachers.map((teacher, index) => (
-                    <TeacherCard key={index} teacher={teacher} delay={0.2 + index * 0.1} />
+                    <TeacherCard
+                      key={index}
+                      teacher={teacher}
+                      delay={0.2 + index * 0.1}
+                    />
                   ))}
                 </div>
               </div>
@@ -110,7 +157,11 @@ const Page = () => {
                 </h2>
                 <div className="space-y-6">
                   {teachers.map((teacher, index) => (
-                    <TeacherCard key={index} teacher={teacher} delay={0.2 + index * 0.1} />
+                    <TeacherCard
+                      key={index}
+                      teacher={teacher}
+                      delay={0.2 + index * 0.1}
+                    />
                   ))}
                 </div>
               </div>
