@@ -25,7 +25,7 @@ const ActivityCard = ({ title, description, imageSrc, delay = 0 }) => {
 const ActivitiesSection = () => {
   const activities = [
     {
-      title: "GCSE (aka OLevels)",
+      title: "GCSE (OLevels)",
       description:
         "We have varity of qualified teachers certified by cambridge for your child to help them in their GCSE examinations.",
       imageSrc: "/images/gcse.jpg",
@@ -35,12 +35,6 @@ const ActivitiesSection = () => {
       description:
         "We have varity of qualified teachers certified by cambridge for your child to help them in their IGCSE examinations.",
       imageSrc: "/images/igcse.png",
-    },
-    {
-      title: "A-Levels",
-      description:
-        "We have varity of qualified teachers certified by cambridge for your child to help them in their A-Levels examinations.",
-      imageSrc: "/images/alevels.jpeg",
     },
   ];
 
