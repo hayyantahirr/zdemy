@@ -5,54 +5,6 @@ import React from "react";
 import axios from "axios";
 
 const Page = async () => {
-  // const teachersForOlevel = [
-  //   {
-  //     name: "Jennifer Florenzo",
-  //     image: "/images/teacher-2-transparent-bg.png",
-  //     description:
-  //       "A dedicated educator with 10 years of experience in teaching mathematics and physics. Jennifer brings innovative teaching methods and a passion for helping students achieve their academic goals. She holds a Master's degree in Mathematics Education and has been recognized for her outstanding contribution to student development.",
-  //     aGrade: 100,
-  //     a: 50,
-  //     socialLinks: {
-  //       facebookLink: "https://www.facebook.com/",
-  //       xLink: "https://x.com/",
-  //       linkedInLink: "https://www.linkedin.com/",
-  //     },
-  //     subjects: ["Mathematics", "Physics"],
-  //   },
-  //   {
-  //     name: "Asim Zameer",
-  //     image: "/images/teacher-3-transparent-bg.png",
-  //     description:
-  //       "A dedicated educator with 10 years of experience in teaching mathematics and physics. Jennifer brings innovative teaching methods and a passion for helping students achieve their academic goals. She holds a Master's degree in Mathematics Education and has been recognized for her outstanding contribution to student development.",
-  //     aGrade: 100,
-  //     a: 50,
-  //     socialLinks: {
-  //       facebookLink: "https://www.facebook.com/",
-  //       xLink: "https://x.com/",
-  //       linkedInLink: "https://www.linkedin.com/",
-  //     },
-  //     subjects: ["urdu"],
-  //   },
-  // ];
-
-  const teachersForAlevel = [
-    {
-      name: "Boakye Oluwafemi",
-      image: "/images/teacher-3-transparent-bg.png",
-      description:
-        "Mr.Boakye a dedicated teacher for A-level Mathematics and Physics. Teacher with 6 years of experience in teaching A-level Mathematics and Physics.",
-      aGrade: 150,
-      a: 60,
-      socialLinks: {
-        facebookLink: "https://www.facebook.com/",
-        xLink: "https://x.com/",
-        linkedInLink: "https://www.linkedin.com/",
-      },
-      subjects: ["Mathematics", "Physics"],
-    },
-  ];
-
   let teachersForOlevel = [];
 
   try {
@@ -94,7 +46,6 @@ const Page = async () => {
   };
 
   const oLevelSubjects = groupTeachersBySubject(teachersForOlevel);
-  const aLevelSubjects = groupTeachersBySubject(teachersForAlevel);
 
   return (
     <>
@@ -125,32 +76,6 @@ const Page = async () => {
           {/* Loop through each subject */}
           <div className="space-y-10">
             {Object.entries(oLevelSubjects).map(([subject, teachers]) => (
-              <div key={subject}>
-                <h2 className="text-3xl font-semibold text-gray-700 mb-6 text-center">
-                  {subject}
-                </h2>
-                <div className="space-y-6">
-                  {teachers.map((teacher, index) => (
-                    <TeacherCard
-                      key={index}
-                      teacher={teacher}
-                      delay={0.2 + index * 0.1}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* A-level Faculty Section */}
-          <div className="text-center my-16">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">
-              Meet Our Faculty for A-levels
-            </h1>
-          </div>
-
-          <div className="space-y-10">
-            {Object.entries(aLevelSubjects).map(([subject, teachers]) => (
               <div key={subject}>
                 <h2 className="text-3xl font-semibold text-gray-700 mb-6 text-center">
                   {subject}
