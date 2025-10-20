@@ -96,12 +96,19 @@ const TeacherCard = ({ teacher, delay = 0 }) => {
                   {teacher.name}
                 </h4>
                 <h4 className="text-lg font-medium text-gray-800 mb-3">
-                  <span className="text-[#FF725E]"> I Teach</span>{" "}
-                  {teacher.subjects.join(" & ")}
+                  <span className="text-[#FF725E]"> {teacher.experience}</span>{" "}
+                  + Years of Proffesional teaching experience
                 </h4>
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  {teacher.description}
-                </p>
+                <h4 className="text-lg font-medium text-gray-800 mb-4">
+                  <span className="text-[#FF725E]"> Batch A </span>
+                  {teacher.schedule.map((t) => {
+                    return (
+                      <span key={t._id} className="flex flex-col gap-4">
+                        {t.day} = {t.startTime} - {t.endTime}
+                      </span>
+                    );
+                  })}
+                </h4>
                 <div className="flex justify-center items-center space-x-4">
                   <div className="flex items-center">
                     <span className="font-semibold text-[#FF725E] text-lg">
@@ -116,69 +123,40 @@ const TeacherCard = ({ teacher, delay = 0 }) => {
                     <p className="ml-2 text-lg">{teacher.a || "0"}+</p>
                   </div>
                 </div>
-                {/* Social Links */}
-                {teacher.socialLinks && (
-                  <div className="flex items-center">
-                    <div className="flex items-center gap-5 mx-auto mt-5">
-                      {/* X / Twitter */}
-                      {teacher.socialLinks.xLink && (
-                        <a
-                          href={teacher.socialLinks.xLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-400 hover:text-blue-600 transition-colors"
-                          aria-label="Twitter/X"
-                        >
-                          <svg
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                          </svg>
-                        </a>
-                      )}
+                <div className="flex gap-6 justify-center mt-5">
+                  <a
+                    href={teacher.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-500 hover:text-pink-700 transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.116 0-3.472.012-4.695.068-2.61.12-3.832 1.343-3.952 3.952-.056 1.223-.067 1.578-.067 4.695s.011 3.472.067 4.695c.12 2.61 1.342 3.832 3.952 3.952 1.223.056 1.578.067 4.695.067s3.472-.011 4.695-.067c2.61-.12 3.832-1.342 3.952-3.952.056-1.223.067-1.578.067-4.695s-.011-3.472-.067-4.695c-.12-2.61-1.342-3.832-3.952-3.952-1.223-.056-1.578-.067-4.695-.067zM12 6.837c-2.835 0-5.163 2.328-5.163 5.163s2.328 5.163 5.163 5.163 5.163-2.328 5.163-5.163-2.328-5.163-5.163-5.163zm0 8.482c-1.833 0-3.319-1.486-3.319-3.319s1.486-3.319 3.319-3.319 3.319 1.486 3.319 3.319-1.486 3.319-3.319 3.319zm4.332-6.605c-.624 0-1.13.506-1.13 1.13s.506 1.13 1.13 1.13 1.13-.506 1.13-1.13-.506-1.13-1.13-1.13z" />
+                    </svg>
+                  </a>
 
-                      {/* LinkedIn */}
-                      {teacher.socialLinks.linkedInLink && (
-                        <a
-                          href={teacher.socialLinks.linkedInLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-700 hover:text-blue-900 transition-colors"
-                          aria-label="LinkedIn"
-                        >
-                          <svg
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                          </svg>
-                        </a>
-                      )}
-
-                      {/* Facebook */}
-                      {teacher.socialLinks.facebookLink && (
-                        <a
-                          href={teacher.socialLinks.facebookLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 transition-colors"
-                          aria-label="Facebook"
-                        >
-                          <svg
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                          </svg>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                )}
+                  {/* Facebook */}
+                  <a
+                    href={teacher.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
 
