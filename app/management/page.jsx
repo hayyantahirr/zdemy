@@ -9,9 +9,7 @@ const Page = async () => {
 
   try {
     const res = await axios.get(
-      `${
-        process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3002"
-      }/api/teachersForOlevels`
+      "https://zdemy-xi.vercel.app/api/teachersForOlevels"
     );
     // Ensure we have an array, handle different response structures
     teachersForOlevel = Array.isArray(res.data)
