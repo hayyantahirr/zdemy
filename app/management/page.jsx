@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; // ⛔ prevent caching
 import Pagination from "@/components/Pagination";
 import TeacherCard from "@/components/managementComponents/TeacherCard";
 import FounderSection from "@/components/managementComponents/FounderSection";
