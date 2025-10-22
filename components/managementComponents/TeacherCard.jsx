@@ -120,7 +120,7 @@ const TeacherCard = ({ teacher, delay = 0 }) => {
                     <span className="font-semibold text-[#FF725E] text-lg">
                       A:
                     </span>
-                    <p className="ml-2 text-lg">{teacher.a || "0"}+</p>
+                    <p className="ml-2 text-lg">{teacher.aStar || "0"}+</p>
                   </div>
                 </div>
                 <div className="flex gap-6 justify-center mt-5">
