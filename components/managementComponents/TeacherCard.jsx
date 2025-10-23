@@ -193,11 +193,11 @@ const TeacherCard = ({ teacher, delay = 0 }) => {
                   <span className="font-semibold text-[#FF725E] text-2xl">
                     A*:
                   </span>
-                  <p className="ml-5 text-xl">{teacher.aGrade || "0"}+</p>
+                  <p className="ml-5 text-xl">{teacher.aStar || "0"}+</p>
                   <span className="font-semibold text-[#FF725E] ml-5 text-2xl">
                     A:
                   </span>
-                  <p className="ml-5 text-xl">{teacher.a || "0"}+</p>
+                  <p className="ml-5 text-xl">{teacher.aGrade || "0"}+</p>
                 </div>
 
                 {/* Social Links */}
