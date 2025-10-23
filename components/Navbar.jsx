@@ -185,19 +185,7 @@ const Navbar = () => {
                   Management
                 </Link>
               </li>
-              <li className="px-4 py-2">
-                <Link
-                  href="/news"
-                  className={`block text-[18px] ${
-                    pathname === "/news"
-                      ? "font-semibold text-[#FF725E]"
-                      : "font-normal text-[#22343D] hover:text-[#FF725E]"
-                  } font-poppins transition-colors`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  News & Event
-                </Link>
-              </li>
+
               <li className="px-4 py-2">
                 <Link
                   href="/gallery"
